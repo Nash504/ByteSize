@@ -16,10 +16,11 @@ import { useState } from "react";
 export default function Home() {
   const [output, setOutput] = useState("");
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const maxLength = 25000;
   const generateText = async (event) => {
     event.preventDefault(); // Prevent page reload
-
+    setLoading(true);
     const prompt = input;
     try {
       const response = await fetch("/api/generate", {
@@ -33,6 +34,7 @@ export default function Home() {
 
       if (response.ok) {
         setOutput(data.content);
+        setLoading(false);
       } else {
         console.log(data.error);
       }
@@ -76,12 +78,12 @@ export default function Home() {
         </Card>
       </form>
       <div>
-        {output ? (
-          <p>{output}</p>
-        ) : (
-          <div className="flex justify-center items-center mt-8 mx-auto">
-            <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+        {loading ? (
+          <div className="flex justify-center items-center mx-auto pt-8">
+            <Skeleton className="h-[200px] w-full max-w-xl rounded-xl" />
           </div>
+        ) : (
+          output && <p>{output}</p>
         )}
       </div>
     </div>
