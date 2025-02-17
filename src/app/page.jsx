@@ -15,7 +15,7 @@ import { useState } from "react";
 export default function Home() {
   const [output, setOutput] = useState("");
   const [input, setInput] = useState("");
-
+  const maxLength = 25000;
   const generateText = async (event) => {
     event.preventDefault(); // Prevent page reload
 
