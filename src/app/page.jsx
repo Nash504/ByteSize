@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -74,7 +75,15 @@ export default function Home() {
           </CardFooter>
         </Card>
       </form>
-      <p>{output}</p>
+      <div>
+        {output ? (
+          <p>{output}</p>
+        ) : (
+          <div className="flex justify-center items-center mt-8 mx-auto">
+            <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
