@@ -59,6 +59,13 @@ export default function Home() {
               placeholder="Paste your notes here..."
               required
             />
+            <CardDescription className=" text-right mt-2 mr-auto text-lg">
+              {input.length < 25000 ? (
+                <p>{input.length}/25000 characters</p>
+              ) : (
+                <p className="text-red-500">{input.length}/25000 characters</p>
+              )}
+            </CardDescription>
           </CardContent>
           <CardFooter>
             <Button className="text-lg font-bold mx-auto" type="submit">
