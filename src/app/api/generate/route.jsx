@@ -7,7 +7,7 @@ export async function POST(req) {
     const prompt = data.prompt;
     const result = await model.generateContent(
       prompt +
-        "(take this text and make it into different questions return in a json format as such { question : questions answer:answer }) ensure they are small questions and answers"
+        "(take this text and make it into different questions return in a json format as such {main topic:{{question}  {answer} }}) ensure they are small questions and answers"
     );
 
     // Return the generated content as a JSON response
