@@ -44,7 +44,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className=" p-2">
       <form onSubmit={generateText}>
         <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
           <CardHeader>
@@ -81,7 +81,11 @@ export default function Home() {
             </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button className="text-lg font-bold mx-auto" type="submit">
+            <Button
+              disabled={input.length > maxLength}
+              className="text-lg font-bold mx-auto"
+              type="submit"
+            >
               Submit
             </Button>
           </CardFooter>
