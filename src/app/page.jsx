@@ -45,7 +45,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className=" p-2">
       <form onSubmit={generateText}>
         <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
           <CardHeader>
@@ -63,6 +63,16 @@ export default function Home() {
               placeholder="Paste your notes here..."
               required
             />
+            <CardDescription>
+              {input.length > 25000 ? (
+                <p className="text-red-500">
+                  {" "}
+                  You have exceeded the maximum of 25,000 characters
+                </p>
+              ) : (
+                ""
+              )}
+            </CardDescription>
             <CardDescription className=" text-right mt-2 mr-auto text-lg">
               {input.length < 25000 ? (
                 <p>{input.length}/25000 characters</p>
@@ -72,21 +82,28 @@ export default function Home() {
             </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button className="text-lg font-bold mx-auto" type="submit">
+            <Button
+              disabled={input.length > maxLength}
+              className="text-lg font-bold mx-auto"
+              type="submit"
+            >
               Submit
             </Button>
           </CardFooter>
         </Card>
       </form>
-      <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
-        {loading ? (
-          <div className="flex justify-center items-center mx-auto pt-8">
-            <Skeleton className="h-[200px] w-full max-w-xl rounded-xl" />
-          </div>
-        ) : (
-          output && <p>{output}</p>
-        )}
-      </Card>
+
+      {loading ? (
+        <div className="flex justify-center items-center mx-auto pt-8">
+          <Skeleton className="h-[200px] w-full max-w-xl rounded-xl" />
+        </div>
+      ) : (
+        output && (
+          <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
+            <p>{output}</p>{" "}
+          </Card>
+        )
+      )}
     </div>
   );
 }
