@@ -77,7 +77,7 @@ export default function Home() {
           </CardFooter>
         </Card>
       </form>
-      <div>
+      <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
         {loading ? (
           <div className="flex justify-center items-center mx-auto pt-8">
             <Skeleton className="h-[200px] w-full max-w-xl rounded-xl" />
@@ -85,7 +85,7 @@ export default function Home() {
         ) : (
           output && <p>{output}</p>
         )}
-      </div>
+      </Card>
     </div>
   );
 }
