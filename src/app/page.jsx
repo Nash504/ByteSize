@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -59,6 +60,13 @@ export default function Home() {
               placeholder="Paste your notes here..."
               required
             />
+            <CardDescription className=" text-right mt-2 mr-auto text-lg">
+              {input.length < 25000 ? (
+                <p>{input.length}/25000 characters</p>
+              ) : (
+                <p className="text-red-500">{input.length}/25000 characters</p>
+              )}
+            </CardDescription>
           </CardContent>
           <CardFooter>
             <Button className="text-lg font-bold mx-auto" type="submit">
@@ -67,7 +75,15 @@ export default function Home() {
           </CardFooter>
         </Card>
       </form>
-      <p>{output}</p>
+      <div>
+        {output ? (
+          <p>{output}</p>
+        ) : (
+          <div className="flex justify-center items-center mt-8 mx-auto">
+            <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
