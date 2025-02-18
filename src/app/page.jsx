@@ -24,7 +24,6 @@ export default function Home() {
   const generateText = async (event) => {
     event.preventDefault(); // Prevent page reload
     setLoading(true);
-
     const prompt = input;
     try {
       const response = await fetch("/api/generate", {
@@ -37,10 +36,9 @@ export default function Home() {
       const data = await response.json();
 
       if (response.ok) {
+        setOutput(data.content);
         setLoading(false);
         setOutput(data.content);
-      } else {
-        console.log(data.error);
       }
     } catch (err) {
       console.log(err);
@@ -59,11 +57,12 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
 
-          <Tabs defaultValue="text" className="mx-auto">
-            <TabsList>
+          <Tabs defaultValue="text" className="mx-auto w-full max-w-xl">
+            <TabsList className="flex justify-center">
               <TabsTrigger value="text">Text</TabsTrigger>
               <TabsTrigger value="document">Document</TabsTrigger>
             </TabsList>
+
             <TabsContent value="text">
               <Textarea
                 className="resize-none rounded-md"
@@ -84,9 +83,7 @@ export default function Home() {
               </CardDescription>
             </TabsContent>
             <TabsContent value="document">
-              <p className="text-gray-500">
-                Upload a document feature coming soon!
-              </p>
+              <p className="text-gray-500">ment feature coming soon!</p>
             </TabsContent>
           </Tabs>
 
