@@ -87,10 +87,10 @@ export default function Home() {
             </TabsContent>
           </Tabs>
 
-          <CardFooter className="w-full flex justify-center mt-4">
+          <CardFooter className="w-full flex  ml-4 justify-end mt-4">
             <Button
               disabled={input.length >= maxLength}
-              className="w-full max-w-xs text-lg font-bold"
+              className="w-1/4 max-w-xs text-lg font-bold"
               type="submit"
             >
               Submit
