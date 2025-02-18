@@ -9,6 +9,7 @@ export async function POST(req) {
       prompt +
         "(take this text and make it into different questions return in a json format as such {main topic:{Questions:{{question}  {answer}} }}  ) ensure they are small questions and answers"
     );
+    
 
     // Return the generated content as a JSON response
     neat(result.response.text());
