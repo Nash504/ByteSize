@@ -11,6 +11,8 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { useState } from "react";
 
 export default function Home() {
@@ -18,6 +20,7 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const maxLength = 25000;
+
   const generateText = async (event) => {
     event.preventDefault(); // Prevent page reload
     setLoading(true);
@@ -44,7 +47,7 @@ export default function Home() {
   };
 
   return (
-    <div className=" p-2">
+    <div className="p-2">
       <form onSubmit={generateText}>
         <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
           <CardHeader>
@@ -54,36 +57,42 @@ export default function Home() {
               flashcards with AI.
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <Textarea
-              className="resize-none rounded-md "
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Paste your notes here..."
-              required
-            />
-            <CardDescription>
-              {input.length > 25000 ? (
-                <p className="text-red-500">
-                  {" "}
+
+          <Tabs defaultValue="text" className="mx-auto">
+            <TabsList>
+              <TabsTrigger value="text">Text</TabsTrigger>
+              <TabsTrigger value="document">Document</TabsTrigger>
+            </TabsList>
+            <TabsContent value="text">
+              <Textarea
+                className="resize-none rounded-md"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Paste your notes here..."
+                required
+              />
+              {input.length >= maxLength && (
+                <CardDescription className="text-red-500 mt-2">
                   You have exceeded the maximum of 25,000 characters
+                </CardDescription>
+              )}
+              <CardDescription className="text-right mt-2 text-lg">
+                <p className={input.length >= maxLength ? "text-red-500" : ""}>
+                  {input.length}/{maxLength} characters
                 </p>
-              ) : (
-                ""
-              )}
-            </CardDescription>
-            <CardDescription className=" text-right mt-2 mr-auto text-lg">
-              {input.length < 25000 ? (
-                <p>{input.length}/25000 characters</p>
-              ) : (
-                <p className="text-red-500">{input.length}/25000 characters</p>
-              )}
-            </CardDescription>
-          </CardContent>
-          <CardFooter>
+              </CardDescription>
+            </TabsContent>
+            <TabsContent value="document">
+              <p className="text-gray-500">
+                Upload a document feature coming soon!
+              </p>
+            </TabsContent>
+          </Tabs>
+
+          <CardFooter className="w-full flex justify-center mt-4">
             <Button
-              disabled={input.length > maxLength}
-              className="text-lg font-bold mx-auto"
+              disabled={input.length >= maxLength}
+              className="w-full max-w-xs text-lg font-bold"
               type="submit"
             >
               Submit
@@ -99,7 +108,7 @@ export default function Home() {
       ) : (
         output && (
           <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
-            <p>{output}</p>{" "}
+            <p>{output}</p>
           </Card>
         )
       )}
