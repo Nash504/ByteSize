@@ -83,7 +83,7 @@ export default function Home() {
               </CardDescription>
             </TabsContent>
             <TabsContent value="document">
-              <p className="text-gray-500">ment feature coming soon!</p>
+              <p className="text-gray-500">Document feature coming soon!</p>
             </TabsContent>
           </Tabs>
 
