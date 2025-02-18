@@ -24,6 +24,7 @@ export default function Home() {
   const generateText = async (event) => {
     event.preventDefault(); // Prevent page reload
     setLoading(true);
+
     const prompt = input;
     try {
       const response = await fetch("/api/generate", {
@@ -36,8 +37,8 @@ export default function Home() {
       const data = await response.json();
 
       if (response.ok) {
-        setOutput(data.content);
         setLoading(false);
+        setOutput(data.content);
       } else {
         console.log(data.error);
       }
