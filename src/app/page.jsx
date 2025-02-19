@@ -43,6 +43,7 @@ export default function Home() {
 
       if (response.ok) {
         setFlashcards(data.content);
+
         setShowAnswer(false);
       }
     } catch (err) {
@@ -112,47 +113,50 @@ export default function Home() {
         </div>
       ) : (
         flashcards &&
-        flashcards.questions &&
-        flashcards.questions.length > 0 && (
-          <div className="mx-auto mt-4 flex flex-col items-center p-8">
-            <h2 className="text-xl font-bold mb-4">
-              Topic: {flashcards.topic}
-            </h2>
-            <Carousel className="w-full max-w-xl ">
+        Object.entries(flashcards).map(([topic, questions], topicIndex) => (
+          <div
+            key={topicIndex}
+            className="mx-auto mt-4 flex flex-col items-center p-8"
+          >
+            <h2 className="text-2xl font-bold mb-4">{topic}</h2>
+
+            <Carousel className="w-full max-w-xl">
               <CarouselContent>
-                {flashcards.questions.map((item, index) => (
-                  <CarouselItem key={index}>
-                    <Card className="mx-4 border-4 border-black">
-                      <CardHeader>
-                        <CardTitle className="text-xl text-center">
-                          Flashcard {index + 1} of {flashcards.questions.length}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex flex-col items-center justify-center p-6 min-h-[200px]">
-                        <div className="text-center">
-                          <p className="text-lg mb-4">{item.question}</p>
-                          {showAnswer && (
-                            <p className="text-lg text-blue-600">
-                              {item.answer}
-                            </p>
-                          )}
-                        </div>
-                        <Button
-                          onClick={() => setShowAnswer(!showAnswer)}
-                          className="mt-4"
-                        >
-                          {showAnswer ? "Hide Answer" : "Show Answer"}
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
+                {questions
+                  .filter((q) => q.question && q.answer) // Remove invalid entries
+                  .map((item, index) => (
+                    <CarouselItem key={index}>
+                      <Card className="mx-4 border-4 border-black">
+                        <CardHeader>
+                          <CardTitle className="text-xl text-center">
+                            Flashcard {index + 1} of {questions.length}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex flex-col items-center justify-center p-6 min-h-[200px]">
+                          <div className="text-center">
+                            <p className="text-lg mb-4">{item.question}</p>
+                            {showAnswer && (
+                              <p className="text-lg text-blue-600">
+                                {item.answer}
+                              </p>
+                            )}
+                          </div>
+                          <Button
+                            onClick={() => setShowAnswer(!showAnswer)}
+                            className="mt-4"
+                          >
+                            {showAnswer ? "Hide Answer" : "Show Answer"}
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
               </CarouselContent>
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
           </div>
-        )
+        ))
       )}
     </div>
   );
