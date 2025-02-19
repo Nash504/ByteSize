@@ -13,6 +13,7 @@ export async function POST(req) {
     const output = result.response.text();
     // Process the output using the neat function and return the structured data
     const processedOutput = processOutput(output);
+    console.log(processedOutput)
     return NextResponse.json({ content: processedOutput });
   } catch (err) {
     console.error(err);
@@ -24,13 +25,16 @@ const processOutput = (output) => {
   try {
     const cleanedOutput = output.replace(/```json|```/g, "").trim();
     const jsonOutput = JSON.parse(cleanedOutput);
-    const mainTopic = Object.keys(jsonOutput)[0];
-    return {
-      topic: mainTopic,
-      questions: jsonOutput[mainTopic].Questions,
-    };
+    const mainTopic = Object.keys(jsonOutput);
+    const result = {};
+    for(var i = 0; i < mainTopic.length; i++){
+      result[mainTopic[i]] = jsonOutput[mainTopic[i]].Questions;
+    }
+
+    return result;
+
   } catch (error) {
     console.error("Failed to parse output:", error);
-    return { topic: "Error", questions: [] };
+    return { topic: ["Error"], questions: [] };
   }
 };
