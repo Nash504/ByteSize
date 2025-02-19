@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -20,16 +20,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { useState } from "react";
-
 export default function Home() {
-  const [output, setOutput] = useState("");
+  const [flashcards, setFlashcards] = useState(null);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
   const maxLength = 25000;
 
   const generateText = async (event) => {
-    event.preventDefault(); // Prevent page reload
+    event.preventDefault();
     setLoading(true);
     const prompt = input;
     try {
@@ -43,12 +42,13 @@ export default function Home() {
       const data = await response.json();
 
       if (response.ok) {
-        setOutput(data.content);
-        setLoading(false);
-        setOutput(data.content);
+        setFlashcards(data.content);
+        setShowAnswer(false);
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -94,7 +94,7 @@ export default function Home() {
             </TabsContent>
           </Tabs>
 
-          <CardFooter className="w-full flex  ml-4 justify-end mt-4">
+          <CardFooter className="w-full flex ml-4 justify-end mt-4">
             <Button
               disabled={input.length >= maxLength}
               className="w-1/4 max-w-xs text-lg font-bold"
@@ -111,34 +111,49 @@ export default function Home() {
           <Skeleton className="h-[200px] w-full max-w-xl rounded-xl" />
         </div>
       ) : (
-        output && (
-          <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
-            <p>{output}</p>
-          </Card>
+        flashcards &&
+        flashcards.questions &&
+        flashcards.questions.length > 0 && (
+          <div className="mx-auto mt-4 flex flex-col items-center">
+            <h2 className="text-xl font-bold mb-4">
+              Topic: {flashcards.topic}
+            </h2>
+            <Carousel className="w-full max-w-xl">
+              <CarouselContent>
+                {flashcards.questions.map((item, index) => (
+                  <CarouselItem key={index}>
+                    <Card className="mx-4">
+                      <CardHeader>
+                        <CardTitle className="text-xl text-center">
+                          Flashcard {index + 1} of {flashcards.questions.length}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex flex-col items-center justify-center p-6 min-h-[200px]">
+                        <div className="text-center">
+                          <p className="text-lg mb-4">{item.question}</p>
+                          {showAnswer && (
+                            <p className="text-lg text-blue-600">
+                              {item.answer}
+                            </p>
+                          )}
+                        </div>
+                        <Button
+                          onClick={() => setShowAnswer(!showAnswer)}
+                          className="mt-4"
+                        >
+                          {showAnswer ? "Hide Answer" : "Show Answer"}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
         )
       )}
-      <div className="mx-auto mt-4 flex justify-center items-center">
-        {" "}
-        <Carousel className="w-full max-w-xs">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((ele, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
     </div>
   );
 }
