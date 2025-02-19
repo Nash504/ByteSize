@@ -114,15 +114,15 @@ export default function Home() {
         flashcards &&
         flashcards.questions &&
         flashcards.questions.length > 0 && (
-          <div className="mx-auto mt-4 flex flex-col items-center">
+          <div className="mx-auto mt-4 flex flex-col items-center p-8">
             <h2 className="text-xl font-bold mb-4">
               Topic: {flashcards.topic}
             </h2>
-            <Carousel className="w-full max-w-xl">
+            <Carousel className="w-full max-w-xl ">
               <CarouselContent>
                 {flashcards.questions.map((item, index) => (
                   <CarouselItem key={index}>
-                    <Card className="mx-4">
+                    <Card className="mx-4 border-4 border-black">
                       <CardHeader>
                         <CardTitle className="text-xl text-center">
                           Flashcard {index + 1} of {flashcards.questions.length}
