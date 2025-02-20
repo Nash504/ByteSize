@@ -72,7 +72,7 @@ export default function Home() {
 
             <TabsContent value="text">
               <Textarea
-                className="resize-none rounded-md"
+                className="resize-none rounded-md h-40 w-full p-2 focus:bg-indigo-50"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Paste your notes here..."
@@ -112,45 +112,79 @@ export default function Home() {
         </div>
       ) : (
         flashcards &&
-  Object.entries(flashcards).map(([topic, questions], topicIndex) => (
-    <div key={topicIndex} className="mx-auto mt-4 flex flex-col items-center p-8">
-      <h2 className="text-2xl font-bold mb-4">{topic}</h2>
+        Object.entries(flashcards).map(([topic, questions], topicIndex) => (
+          <div
+            key={topicIndex}
+            className="mx-auto mt-4 flex flex-col items-center p-16"
+          >
+            <h2 className="text-2xl font-bold mb-4">{topic}</h2>
 
-      <Carousel className="w-full max-w-xl">
-        <CarouselContent>
-          {questions
-            .filter((q) => q.question && q.answer) // Remove invalid entries
-            .map((item, index) => (
-              <CarouselItem key={index}>
-                <Card className="mx-4 border-4 border-black">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-center">
-                      Flashcard {index + 1} of {questions.length}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-col items-center justify-center p-6 min-h-[200px]">
-                    <div className="text-center">
-                      <p className="text-lg mb-4">{item.question}</p>
-                      {showAnswer && (
-                        <p className="text-lg text-blue-600">{item.answer}</p>
-                      )}
-                    </div>
-                    <Button
-                      onClick={() => setShowAnswer(!showAnswer)}
-                      className="mt-4"
-                    >
-                      {showAnswer ? "Hide Answer" : "Show Answer"}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </div>
-  )))}
+            <Carousel className="w-full max-w-xl">
+              <CarouselContent>
+                {questions
+                  .filter((q) => q.question && q.answer)
+                  .map((item, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative h-[400px] w-full perspective-1000">
+                        <div
+                          className="relative w-full h-full transition-transform duration-500"
+                          style={{
+                            transformStyle: "preserve-3d",
+                            transform: showAnswer
+                              ? "rotateY(180deg)"
+                              : "rotateY(0deg)",
+                          }}
+                          onClick={() => setShowAnswer(!showAnswer)}
+                        >
+                          {/* Front of card */}
+                          <Card className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl">
+                            <CardHeader>
+                              <CardTitle className="text-xl text-center">
+                                Flashcard {index + 1} of {questions.length}
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-col items-center justify-center p-6 h-[300px] overflow-y-auto">
+                              <div className="text-center w-full">
+                                <p className="text-lg">{item.question}</p>
+                              </div>
+                              <p className="mt-4 text-sm text-gray-500">
+                                Click to flip
+                              </p>
+                            </CardContent>
+                          </Card>
+
+                          {/* Back of card */}
+                          <Card
+                            className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl"
+                            style={{ transform: "rotateY(180deg)" }}
+                          >
+                            <CardHeader>
+                              <CardTitle className="text-xl text-center">
+                                Answer
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-col items-center justify-center p-6 h-[300px] overflow-y-auto">
+                              <div className="text-center w-full">
+                                <p className="text-lg text-blue-600">
+                                  {item.answer}
+                                </p>
+                              </div>
+                              <p className="mt-4 text-sm text-gray-500">
+                                Click to flip back
+                              </p>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        ))
+      )}
     </div>
   );
 }
