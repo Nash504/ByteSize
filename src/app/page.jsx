@@ -53,9 +53,9 @@ export default function Home() {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 max-w-lg mx-auto">
       <form onSubmit={generateText}>
-        <Card className="border-black mt-4 p-4 max-w-xl mx-auto border-4">
+        <Card className="border-black mt-4 p-4 border-4">
           <CardHeader>
             <CardTitle className="text-2xl">AI Flashcard Generator</CardTitle>
             <CardDescription className="text-md">
@@ -64,7 +64,7 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
 
-          <Tabs defaultValue="text" className="mx-auto w-full max-w-xl">
+          <Tabs defaultValue="text" className="w-full">
             <TabsList className="flex justify-center">
               <TabsTrigger value="text">Text</TabsTrigger>
               <TabsTrigger value="document">Document</TabsTrigger>
@@ -94,10 +94,10 @@ export default function Home() {
             </TabsContent>
           </Tabs>
 
-          <CardFooter className="w-full flex ml-4 justify-end mt-4">
+          <CardFooter className="flex justify-end mt-4">
             <Button
               disabled={input.length >= maxLength}
-              className="w-1/4 max-w-xs text-lg font-bold"
+              className="w-1/4 text-lg font-bold"
               type="submit"
             >
               Submit
@@ -108,24 +108,24 @@ export default function Home() {
 
       {loading ? (
         <div className="flex justify-center items-center mx-auto pt-8">
-          <Skeleton className="h-[200px] w-full max-w-xl rounded-xl" />
+          <Skeleton className="h-[200px] w-full max-w-md rounded-xl" />
         </div>
       ) : (
         flashcards &&
         Object.entries(flashcards).map(([topic, questions], topicIndex) => (
-          <div
-            key={topicIndex}
-            className="mx-auto mt-4 flex flex-col items-center p-16"
-          >
+          <div key={topicIndex} className="mt-4 flex flex-col items-center">
             <h2 className="text-2xl font-bold mb-4">{topic}</h2>
 
-            <Carousel className="w-full max-w-xl">
+            <Carousel
+              className="w-full max-w-md"
+              onSlideChange={() => setShowAnswer(false)}
+            >
               <CarouselContent>
                 {questions
                   .filter((q) => q.question && q.answer)
                   .map((item, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative h-[400px] w-full perspective-1000">
+                      <div className="relative h-[300px] w-full perspective-2000 ">
                         <div
                           className="relative w-full h-full transition-transform duration-500"
                           style={{
@@ -139,38 +139,38 @@ export default function Home() {
                           {/* Front of card */}
                           <Card className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl">
                             <CardHeader>
-                              <CardTitle className="text-xl text-center">
+                              <CardTitle className="text-lg text-center">
                                 Flashcard {index + 1} of {questions.length}
                               </CardTitle>
                             </CardHeader>
-                            <CardContent className="flex flex-col items-center justify-center p-6 h-[300px] overflow-y-auto">
+                            <CardContent className="flex flex-col items-center justify-center p-4 h-[200px] overflow-y-auto pb-16">
                               <div className="text-center w-full">
-                                <p className="text-lg">{item.question}</p>
+                                <p className="text-md">{item.question}</p>
                               </div>
-                              <p className="mt-4 text-sm text-gray-500">
-                                Click to flip
+                              <p className="mt-4 text-xs text-gray-500">
+                                Tap to flip
                               </p>
                             </CardContent>
                           </Card>
 
                           {/* Back of card */}
                           <Card
-                            className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl"
+                            className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl p-2"
                             style={{ transform: "rotateY(180deg)" }}
                           >
                             <CardHeader>
-                              <CardTitle className="text-xl text-center">
+                              <CardTitle className="text-lg text-center">
                                 Answer
                               </CardTitle>
                             </CardHeader>
-                            <CardContent className="flex flex-col items-center justify-center p-6 h-[300px] overflow-y-auto">
+                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16">
                               <div className="text-center w-full">
-                                <p className="text-lg text-blue-600">
+                                <p className="text-md text-blue-600">
                                   {item.answer}
                                 </p>
                               </div>
-                              <p className="mt-4 text-sm text-gray-500">
-                                Click to flip back
+                              <p className="mt-4 text-xs text-gray-500">
+                                Tap to flip back
                               </p>
                             </CardContent>
                           </Card>
