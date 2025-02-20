@@ -13,7 +13,7 @@ export async function POST(req) {
     const output = result.response.text();
     // Process the output using the neat function and return the structured data
     const processedOutput = processOutput(output);
-    console.log(processedOutput)
+    //console.log(processedOutput)
     return NextResponse.json({ content: processedOutput });
   } catch (err) {
     console.error(err);
