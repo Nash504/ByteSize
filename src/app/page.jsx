@@ -43,7 +43,6 @@ export default function Home() {
 
       if (response.ok) {
         setFlashcards(data.content);
-
         setShowAnswer(false);
       }
     } catch (err) {
