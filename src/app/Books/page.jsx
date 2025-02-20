@@ -16,6 +16,7 @@ export default function Books() {
         </CardHeader>
       </Card>
       </div>
+      <h1 className="text-4xl p-10">Caming Soon!!</h1>
     </div>
   );
 }
