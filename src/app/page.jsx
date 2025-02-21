@@ -53,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <div className="p-2 pr-4 max-w-lg mx-auto font-poppins">
+    <div className="p-2  max-w-lg mx-auto font-poppins justify-center">
       <form onSubmit={generateText}>
         <Card className="border-black mt-4 p-4 border-4">
           <CardHeader>
@@ -99,7 +99,9 @@ export default function Home() {
               </CardFooter>
             </TabsContent>
             <TabsContent value="document">
-              <p className="text-gray-500 p-10 font-bold ">Document feature coming soon!</p>
+              <p className="text-gray-500 p-10 font-bold ">
+                Document feature coming soon!
+              </p>
             </TabsContent>
           </Tabs>
         </Card>
@@ -113,10 +115,10 @@ export default function Home() {
         flashcards &&
         Object.entries(flashcards).map(([topic, questions], topicIndex) => (
           <div key={topicIndex} className="mt-4 flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4">{topic}</h2>
+            <h2 className="text-2xl font-bold mb-4 mt-16">{topic}</h2>
 
             <Carousel
-              className="w-full max-w-md"
+              className="w-full max-w-sm"
               onSlideChange={() => setShowAnswer(false)}
             >
               <CarouselContent>
@@ -180,8 +182,6 @@ export default function Home() {
                     </CarouselItem>
                   ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
             </Carousel>
           </div>
         ))
