@@ -88,13 +88,7 @@ export default function Home() {
                   {input.length}/{maxLength} characters
                 </p>
               </CardDescription>
-            </TabsContent>
-            <TabsContent value="document">
-              <p className="text-gray-500">Document feature coming soon!</p>
-            </TabsContent>
-          </Tabs>
-
-          <CardFooter className="flex justify-end mt-4">
+              <CardFooter className="flex justify-end mt-4">
             <Button
               disabled={input.length >= maxLength}
               className="w-1/4 text-lg font-bold"
@@ -103,6 +97,13 @@ export default function Home() {
               Submit
             </Button>
           </CardFooter>
+            </TabsContent>
+            <TabsContent value="document">
+              <p className="text-gray-500">Document feature coming soon!</p>
+            </TabsContent>
+          </Tabs>
+
+         
         </Card>
       </form>
 
