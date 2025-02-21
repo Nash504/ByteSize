@@ -99,11 +99,9 @@ export default function Home() {
           </CardFooter>
             </TabsContent>
             <TabsContent value="document">
-              <p className="text-gray-500">Document feature coming soon!</p>
+              <p className="text-gray-500 p-10 font-bold ">Document feature coming soon!</p>
             </TabsContent>
           </Tabs>
-
-         
         </Card>
       </form>
 
