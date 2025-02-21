@@ -19,6 +19,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader"
 
 export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
@@ -107,7 +108,8 @@ export default function Home() {
 
       {loading ? (
         <div className="flex justify-center items-center mx-auto pt-8">
-          <Skeleton className="h-[200px] w-full max-w-md rounded-xl" />
+          <FlashcardGeneratorLoader color="black" cardCount={1} />
+          {/* <Skeleton className="h-[200px] w-full max-w-md rounded-xl" /> */}
         </div>
       ) : (
         flashcards &&
