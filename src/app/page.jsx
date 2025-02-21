@@ -53,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <div className="p-2 max-w-lg mx-auto font-poppins">
+    <div className="p-2 pr-4 max-w-lg mx-auto font-poppins">
       <form onSubmit={generateText}>
         <Card className="border-black mt-4 p-4 border-4">
           <CardHeader>
@@ -89,27 +89,25 @@ export default function Home() {
                 </p>
               </CardDescription>
               <CardFooter className="flex justify-end mt-4">
-            <Button
-              disabled={input.length >= maxLength}
-              className="w-1/4 text-lg font-bold"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </CardFooter>
+                <Button
+                  disabled={input.length >= maxLength}
+                  className="w-1/4 text-lg font-bold"
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </CardFooter>
             </TabsContent>
             <TabsContent value="document">
               <p className="text-gray-500">Document feature coming soon!</p>
             </TabsContent>
           </Tabs>
-
-         
         </Card>
       </form>
 
       {loading ? (
         <div className="flex justify-center items-center mx-auto pt-8">
-          <Skeleton className="h-[200px] w-full max-w-md rounded-xl" />
+          <Skeleton className="h-[200px] w-f max-w-md rounded-xl" />
         </div>
       ) : (
         flashcards &&
@@ -126,7 +124,8 @@ export default function Home() {
                   .filter((q) => q.question && q.answer)
                   .map((item, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative h-[300px] w-full perspective-2000 ">
+                      {/*fuck around with the choco mod for card sizing*/}
+                      <div className="relative h-[400px] w-full perspective-2000 ">
                         <div
                           className="relative w-full h-full transition-transform duration-500"
                           style={{
@@ -135,6 +134,7 @@ export default function Home() {
                               ? "rotateY(180deg)"
                               : "rotateY(0deg)",
                           }}
+                          onLoad={() => setShowAnswer(true)}
                           onClick={() => setShowAnswer(!showAnswer)}
                         >
                           {/* Front of card */}
@@ -156,7 +156,7 @@ export default function Home() {
 
                           {/* Back of card */}
                           <Card
-                            className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl p-2"
+                            className="absolute w-full h-96 backface-hidden border-4 border-black rounded-xl p-2"
                             style={{ transform: "rotateY(180deg)" }}
                           >
                             <CardHeader>
