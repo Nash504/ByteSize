@@ -124,7 +124,7 @@ export default function Home() {
                   .filter((q) => q.question && q.answer)
                   .map((item, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative h-[300px] w-full perspective-2000 ">
+                      <div className="relative h-[500px] w-full perspective-2000 ">
                         <div
                           className="relative w-full h-full transition-transform duration-500"
                           style={{
@@ -162,7 +162,7 @@ export default function Home() {
                                 Answer
                               </CardTitle>
                             </CardHeader>
-                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16">
+                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16 h-">
                               <div className="text-center w-full">
                                 <p className="text-md text-blue-600">
                                   {item.answer}
