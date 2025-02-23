@@ -140,7 +140,7 @@ export default function Home() {
                           onClick={() => setShowAnswer(!showAnswer)}
                         >
                           {/* Front of card */}
-                          <Card className="bg-purple-900 absolute w-full h-full backface-hidden border-4 border-black rounded-xl">
+                          <Card className="bg-purple-500 absolute w-full h-full backface-hidden border-4 border-black rounded-xl">
                             <CardHeader>
                               <CardTitle className="text-lg text-center">
                                 Flashcard {index + 1} of {questions.length}
