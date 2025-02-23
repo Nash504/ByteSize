@@ -126,7 +126,7 @@ export default function Home() {
                   .filter((q) => q.question && q.answer)
                   .map((item, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative h-[500px] w-full perspective-2000 ">
+                      <div className="relative h-[400px] w-full perspective-2000 ">
                         <div
                           className="relative w-full h-full transition-transform duration-500"
                           style={{
@@ -138,7 +138,7 @@ export default function Home() {
                           onClick={() => setShowAnswer(!showAnswer)}
                         >
                           {/* Front of card */}
-                          <Card className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl">
+                          <Card className="bg-purple-900 absolute w-full h-full backface-hidden border-4 border-black rounded-xl">
                             <CardHeader>
                               <CardTitle className="text-lg text-center">
                                 Flashcard {index + 1} of {questions.length}
@@ -180,8 +180,6 @@ export default function Home() {
                     </CarouselItem>
                   ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
             </Carousel>
           </div>
         ))
