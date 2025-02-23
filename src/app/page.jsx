@@ -19,7 +19,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader"
+import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader";
 
 export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
@@ -90,17 +90,19 @@ export default function Home() {
                 </p>
               </CardDescription>
               <CardFooter className="flex justify-end mt-4">
-            <Button
-              disabled={input.length >= maxLength}
-              className="w-1/4 text-lg font-bold"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </CardFooter>
+                <Button
+                  disabled={input.length >= maxLength}
+                  className="w-1/4 text-lg font-bold"
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </CardFooter>
             </TabsContent>
             <TabsContent value="document">
-              <p className="text-gray-500 p-10 font-bold ">Document feature coming soon!</p>
+              <p className="text-gray-500 p-10 font-bold ">
+                Document feature coming soon!
+              </p>
             </TabsContent>
           </Tabs>
         </Card>
@@ -115,7 +117,7 @@ export default function Home() {
         flashcards &&
         Object.entries(flashcards).map(([topic, questions], topicIndex) => (
           <div key={topicIndex} className="mt-4 flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4">{topic}</h2>
+            <h2 className="text-2xl font-bold mb-4 mt-16">{topic}</h2>
 
             <Carousel
               className="w-full max-w-md"
@@ -128,7 +130,7 @@ export default function Home() {
                     <CarouselItem key={index}>
                       <div className="relative h-[400px] w-full perspective-2000 ">
                         <div
-                          className="relative w-full h-full transition-transform duration-500"
+                          className="relative w-full h-96 transition-transform duration-500"
                           style={{
                             transformStyle: "preserve-3d",
                             transform: showAnswer
@@ -164,7 +166,7 @@ export default function Home() {
                                 Answer
                               </CardTitle>
                             </CardHeader>
-                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16 h-">
+                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16 ">
                               <div className="text-center w-full">
                                 <p className="text-md text-blue-600">
                                   {item.answer}
