@@ -62,9 +62,13 @@ export default function Home() {
   };
 
   return (
-    <div className="p-2 max-w-lg mx-auto font-feather">
+    <div className="p-2 max-w-lg mx-auto font-black">
       <form onSubmit={generateText}>
+<<<<<<< HEAD
       <Card className="border-black  border-b-8  mt-4 p-4 border-4">
+=======
+        <Card className="border-black  border-b-8  mt-4 p-4 border-4 rounded-xl">
+>>>>>>> 0e30603add147438b6d3d3b44b4932bf57c122ee
           <CardHeader>
             <CardTitle className="text-2xl">AI Flashcard Generator</CardTitle>
             <CardDescription className="text-md">
@@ -100,7 +104,12 @@ export default function Home() {
               <CardFooter className="flex justify-end mt-4">
                 <Button
                   disabled={input.length >= maxLength}
+<<<<<<< HEAD
                   className="w-1/4 text-lg font-bold relative bg-#58CC02 text-white font-bold text-lg px-6 py-3 rounded-full transition-all duration-300 "
+=======
+                  className="w-1/4 text-lg font-black relative bg-#58CC02 text-white font-bold text-lg px-6 py-3 rounded-xl
+                  "
+>>>>>>> 0e30603add147438b6d3d3b44b4932bf57c122ee
                   type="submit"
                 >
                   Submit
