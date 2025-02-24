@@ -1,6 +1,7 @@
 "use client";
 import './globals.css';
 import { useState } from "react";
+import Link from "next/link"
 import {
   Card,
   CardContent,
@@ -21,6 +22,23 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
 
 export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
@@ -62,7 +80,63 @@ export default function Home() {
   };
 
   return (
-    <div className="p-2 max-w-lg mx-auto font-feather">
+    <div>
+      <header className="flex h-16 w-full items-center justify-between bg-background px-4 md:px-6">
+        <div className="flex items-center gap-2">
+          <span className="text-lg font-bold block sm:hidden text-foreground">ByteSize Mobile</span>
+          <span className="text-2xl font-bold hidden sm:block text-foreground">ByteSize</span>
+        </div>
+        <div className="flex gap-1">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="rounded-full">
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem>Admin</DropdownMenuItem>
+            <DropdownMenuItem>Mechanic</DropdownMenuItem>
+            <DropdownMenuItem>Customer</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="rounded-full md:hidden">
+              
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="sm:max-w-xs">
+            <nav className="grid gap-6 text-lg font-medium">
+              <Link href="#" className="flex items-center gap-2" prefetch={false}>
+                
+                <span className="text-lg font-bold">Acme Inc</span>
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                prefetch={false}
+              >
+                Home
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                prefetch={false}
+              >
+                About
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                prefetch={false}
+              >
+                Contact
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+      </header>
+      <div className="p-2 max-w-lg mx-auto font-feather">
       <form onSubmit={generateText}>
       <Card className="border-black  border-b-8  mt-4 p-4 border-4">
           <CardHeader>
@@ -99,8 +173,7 @@ export default function Home() {
               </CardDescription>
               <CardFooter className="flex justify-end mt-4">
                 <Button
-                  disabled={input.length >= maxLength}
-                  className="w-1/4 text-lg font-bold relative bg-#58CC02 text-white font-bold text-lg px-6 py-3 rounded-full transition-all duration-300 "
+                  className="w-1/4 text-lg font-bold relative bg-#58CC02 text-white px-6 py-3 rounded-full transition-all duration-300"
                   type="submit"
                 >
                   Submit
@@ -188,6 +261,7 @@ export default function Home() {
           </div>
         ))
       )}
+      </div>
     </div>
   );
 }

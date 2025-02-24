@@ -9,6 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        FeatherBold: ["Feather Bold", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
         roboto: ["Roboto", "sans-serif"], // Add Roboto font
       },
