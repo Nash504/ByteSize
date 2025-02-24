@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div className="p-2 max-w-lg mx-auto font-feather">
       <form onSubmit={generateText}>
-        <Card className="border-black mt-4 p-4 border-4">
+        <Card className="border-black  border-b-8  mt-4 p-4 border-4">
           <CardHeader>
             <CardTitle className="text-2xl">AI Flashcard Generator</CardTitle>
             <CardDescription className="text-md">
@@ -99,7 +99,8 @@ export default function Home() {
               <CardFooter className="flex justify-end mt-4">
                 <Button
                   disabled={input.length >= maxLength}
-                  className="w-1/4 text-lg font-bold"
+                  className="w-1/4 text-lg font-bold relative bg-#58CC02 text-white font-bold text-lg px-6 py-3 rounded-full transition-all duration-300 
+                  "
                   type="submit"
                 >
                   Submit
@@ -142,7 +143,7 @@ export default function Home() {
                           }}
                           onClick={() => toggleCard(index)}
                         >
-                          <Card className="absolute w-full backface-hidden border-4 border-black rounded-xl">
+                          <Card className="absolute w-full backface-hidden border-4 border-black  border-b-8 rounded-xl">
                             <CardHeader>
                               <CardTitle className="text-lg text-center">
                                 Flashcard {index + 1} of {questions.length}
@@ -159,7 +160,7 @@ export default function Home() {
                           </Card>
 
                           <Card
-                            className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl p-2"
+                            className="absolute w-full h-full backface-hidden border-4 border-#E5E5E5 border-b-8 rounded-xl p-2"
                             style={{ transform: "rotateY(180deg)" }}
                           >
                             <CardHeader>
