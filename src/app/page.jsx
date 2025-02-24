@@ -1,5 +1,5 @@
 "use client";
-import './globals.css';
+import "./globals.css";
 import { useState } from "react";
 import {
   Card,
@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <div className="p-2 max-w-lg mx-auto font-feather">
       <form onSubmit={generateText}>
-      <Card className="border-black  border-b-8  mt-4 p-4 border-4">
+        <Card className="border-black  border-b-8  mt-4 p-4 border-4">
           <CardHeader>
             <CardTitle className="text-2xl">AI Flashcard Generator</CardTitle>
             <CardDescription className="text-md">
@@ -100,7 +100,10 @@ export default function Home() {
               <CardFooter className="flex justify-end mt-4">
                 <Button
                   disabled={input.length >= maxLength}
-                  className="w-1/4 text-lg font-bold relative bg-#58CC02 text-white font-bold text-lg px-6 py-3 rounded-full transition-all duration-300 "
+                  className="w-1/4 text-lg font-bold relative bg-[#58CC02] text-white px-6 py-3 rounded-xl transition-all duration-200
+           border-b-2 border-[#2E860A] shadow-[0px_2px_0px_#2E860A]
+         
+           active:border-b-[0px] active:shadow-[0px_0px_0px_0px] active:translate-y-[2px]"
                   type="submit"
                 >
                   Submit
