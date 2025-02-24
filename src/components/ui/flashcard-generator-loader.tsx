@@ -17,7 +17,7 @@ export function FlashcardGeneratorLoader({
     blue: "bg-blue-100 border-blue-300",
     purple: "bg-purple-100 border-purple-300",
     green: "bg-green-100 border-green-300",
-    black: "bg-purple border-black",
+    black: "bg-violet-800 border-black",
   }
 
   return (

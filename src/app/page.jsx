@@ -61,7 +61,7 @@ export default function Home() {
   };
 
   return (
-    <div className="p-2 max-w-lg mx-auto font-poppins">
+    <div className="p-2 max-w-lg mx-auto font-feather">
       <form onSubmit={generateText}>
         <Card className="border-black mt-4 p-4 border-4">
           <CardHeader>
