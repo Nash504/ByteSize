@@ -25,7 +25,7 @@ export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [flippedCards, setFlippedCards] = useState({});
   const maxLength = 25000;
 
   const generateText = async (event) => {
@@ -44,13 +44,20 @@ export default function Home() {
 
       if (response.ok) {
         setFlashcards(data.content);
-        setShowAnswer(false);
+        setFlippedCards({});
       }
     } catch (err) {
       console.log(err);
     } finally {
       setLoading(false);
     }
+  };
+
+  const toggleCard = (index) => {
+    setFlippedCards((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   return (
@@ -100,7 +107,7 @@ export default function Home() {
               </CardFooter>
             </TabsContent>
             <TabsContent value="document">
-              <p className="text-gray-500 p-10 font-bold ">
+              <p className="text-gray-500 p-10 font-bold">
                 Document feature coming soon!
               </p>
             </TabsContent>
@@ -111,7 +118,6 @@ export default function Home() {
       {loading ? (
         <div className="flex justify-center items-center mx-auto pt-8">
           <FlashcardGeneratorLoader color="black" cardCount={1} />
-          {/* <Skeleton className="h-[200px] w-full max-w-md rounded-xl" /> */}
         </div>
       ) : (
         flashcards &&
@@ -119,28 +125,24 @@ export default function Home() {
           <div key={topicIndex} className="mt-4 flex flex-col items-center">
             <h2 className="text-2xl font-bold mb-4 mt-16">{topic}</h2>
 
-            <Carousel
-              className="w-full max-w-md"
-              onSlideChange={() => setShowAnswer(false)}
-            >
+            <Carousel className="w-full max-w-md">
               <CarouselContent>
                 {questions
                   .filter((q) => q.question && q.answer)
                   .map((item, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative h-[500px] w-full perspective-2000 ">
+                      <div className="relative h-[500px] w-full perspective-2000">
                         <div
                           className="relative w-full h-96 transition-transform duration-500"
                           style={{
                             transformStyle: "preserve-3d",
-                            transform: showAnswer
+                            transform: flippedCards[index]
                               ? "rotateY(180deg)"
                               : "rotateY(0deg)",
                           }}
-                          onClick={() => setShowAnswer(!showAnswer)}
+                          onClick={() => toggleCard(index)}
                         >
-                          {/* Front of card */}
-                          <Card className="absolute w-full  backface-hidden border-4 border-black rounded-xl">
+                          <Card className="absolute w-full backface-hidden border-4 border-black rounded-xl">
                             <CardHeader>
                               <CardTitle className="text-lg text-center">
                                 Flashcard {index + 1} of {questions.length}
@@ -156,7 +158,6 @@ export default function Home() {
                             </CardContent>
                           </Card>
 
-                          {/* Back of card */}
                           <Card
                             className="absolute w-full h-full backface-hidden border-4 border-black rounded-xl p-2"
                             style={{ transform: "rotateY(180deg)" }}
@@ -166,7 +167,7 @@ export default function Home() {
                                 Answer
                               </CardTitle>
                             </CardHeader>
-                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16 ">
+                            <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16">
                               <div className="text-center w-full">
                                 <p className="text-md text-blue-600">
                                   {item.answer}
