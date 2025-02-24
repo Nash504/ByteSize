@@ -10,66 +10,46 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"], // Add Roboto font
       },
       colors: {
         background: "#FFFFFF",
         foreground: "#58CC02",
-
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
         primary: {
-          DEFAULT: "#58CC02",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#78CA33", // Duolingo green
+          foreground: "#FFFFFF", // White text on buttons
         },
         secondary: {
-          DEFAULT: "#5d06ad",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#9CEE6F", // Light green
+          foreground: "#333333", // Dark gray text
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#D1D5DB", // Light gray
+          foreground: "#6B7280", // Gray text
         },
         accent: {
-          DEFAULT: "#4fe029",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#4FE029", // Bright green
+          foreground: "#FFFFFF", // White text
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#F87171", // Red
+          foreground: "#FFFFFF", // White text
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        border: "#E5E7EB", // Light gray border
+        input: "#F3F4F6", // Light gray input background
+        ring: "#60A5FA", // Blue ring
         chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
+          1: "#FF5733",
+          2: "#33FF57",
+          3: "#3357FF",
+          4: "#F333FF",
+          5: "#33F3FF",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      transformStyle: {
-        "3d": "preserve-3d",
-      },
-      backfaceVisibility: {
-        hidden: "hidden",
-      },
-      rotate: {
-        "y-180": "rotateY(180deg)",
-      },
-      perspective: {
-        1000: "1000px",
       },
     },
   },

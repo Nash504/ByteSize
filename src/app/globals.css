@@ -1,12 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://db.onlinewebfonts.com/c/14936bb7a4b6575fd2eee80a3ab52cc2?family=Feather+Bold");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: poppins, sans-serif;
+@font-face {
+  font-family: 'Feather Bold';
+  src: url('/fonts/FeatherBold.woff2') format('woff2'),
+        url('/fonts/FeatherBold.woff') format('woff'),
+        url('/fonts/FeatherBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+body {
+  font-family:   'Feather Bold','Roboto','Poppins',Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Additional custom styles */
+
+
 
 @layer base {
   :root {
@@ -109,3 +123,4 @@ body {
     animation: flashcard-generate 2s ease-in-out infinite;
   }
 }
+
