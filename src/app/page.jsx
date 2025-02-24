@@ -173,15 +173,12 @@ export default function Home() {
               </CardDescription>
               <CardFooter className="flex justify-end mt-4">
                 <Button
-<<<<<<< HEAD
-                  className="w-1/4 text-lg font-bold relative bg-#58CC02 text-white px-6 py-3 rounded-full transition-all duration-300"
-=======
                   disabled={input.length >= maxLength}
                   className="w-1/4 text-lg font-bold relative bg-[#58CC02] text-white px-6 py-3 rounded-xl transition-all duration-200
            border-b-2 border-[#2E860A] shadow-[0px_2px_0px_#2E860A]
          
            active:border-b-[0px] active:shadow-[0px_0px_0px_0px] active:translate-y-[2px]"
->>>>>>> 88a27d2575e9745153f7f172240bf0d4242a379b
+
                   type="submit"
                 >
                   Submit
