@@ -67,7 +67,7 @@ export default function Home() {
           <CardHeader>
             <CardTitle className="text-2xl">AI Flashcard Generator</CardTitle>
             <CardDescription className="text-md">
-              Upload a document, paste your notes to automatically generate
+              Upload a document, paste your notes to auto0matically generate
               flashcards with AI.
             </CardDescription>
           </CardHeader>
