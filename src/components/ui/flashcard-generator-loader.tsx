@@ -1,10 +1,11 @@
-import type React from "react"
-import { cn } from "@/lib/utils"
-import { Sparkles } from "lucide-react"
+import type React from "react";
+import { cn } from "@/lib/utils";
+import { Sparkles } from "lucide-react";
 
-interface FlashcardGeneratorLoaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  cardCount?: number
-  color?: "blue" | "purple" | "green"| "black"
+interface FlashcardGeneratorLoaderProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  cardCount?: number;
+  color?: "blue" | "purple" | "green" | "black";
 }
 
 export function FlashcardGeneratorLoader({
@@ -18,10 +19,15 @@ export function FlashcardGeneratorLoader({
     purple: "bg-purple-100 border-purple-300",
     green: "bg-green-100 border-green-300",
     black: "bg-violet-800 border-black",
-  }
+  };
 
   return (
-    <div className={cn("relative w-48 h-32", className)} role="status" aria-label="Generating flashcards" {...props}>
+    <div
+      className={cn("relative w-48 h-32", className)}
+      role="status"
+      aria-label="Generating flashcards"
+      {...props}
+    >
       {[...Array(cardCount)].map((_, index) => (
         <div
           key={index}
@@ -29,16 +35,17 @@ export function FlashcardGeneratorLoader({
             "absolute inset-0 rounded-lg border-2 shadow-md",
             colorClasses[color],
             "animate-flashcard-generate",
-            index === cardCount - 1 && "flex items-center justify-center",
+            index === cardCount - 1 && "flex items-center justify-center"
           )}
           style={{
             animationDelay: `${index * 0.15}s`,
           }}
         >
-          {index === cardCount - 1 && <Sparkles className={`w-6 h-6 text-${color}-500 animate-pulse`} />}
+          {index === cardCount - 1 && (
+            <Sparkles className={`w-6 h-6 text-${color}-500 animate-pulse`} />
+          )}
         </div>
       ))}
     </div>
-  )
+  );
 }
-
