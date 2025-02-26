@@ -87,28 +87,29 @@ export default function Home() {
           <span className="text-2xl font-bold hidden sm:block text-foreground">ByteSize</span>
         </div>
         <div className="flex gap-1">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="rounded-full">
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>Admin</DropdownMenuItem>
-            <DropdownMenuItem>Mechanic</DropdownMenuItem>
-            <DropdownMenuItem>Customer</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="rounded-full md:hidden">
-              
+            <Button variant="ghost" size="icon" className="rounded-full ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
               <Link href="#" className="flex items-center gap-2" prefetch={false}>
-                
-                <span className="text-lg font-bold">Acme Inc</span>
+                <span className="text-lg font-bold">Byte Size</span>
               </Link>
               <Link
                 href="#"
@@ -142,7 +143,7 @@ export default function Home() {
           <CardHeader>
             <CardTitle className="text-2xl">AI Flashcard Generator</CardTitle>
             <CardDescription className="text-md">
-              Upload a document, paste your notes to auto0matically generate
+              Upload a document, paste your notes to automatically generate
               flashcards with AI.
             </CardDescription>
           </CardHeader>
