@@ -20,11 +20,7 @@ import {
 } from "@/components/ui/carousel";
 import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
@@ -101,7 +97,7 @@ export default function Home() {
                     strokeWidth={2}
                     d="M4 6h16M4 12h16m-7 6h7"
                   />
-                </svg>      
+                </svg>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="sm:max-w-xs">
@@ -164,13 +160,13 @@ export default function Home() {
                 {/* Duolingo tab style */}
                 <TabsTrigger
                   value="text"
-                  className="data-[state=active]:bg-[#58CC02] data-[state=active]:text-white" /* Duolingo active tab */
+                  className="bg-[#58CC02]  text-white" /* Duolingo active tab */
                 >
                   Text
                 </TabsTrigger>
                 <TabsTrigger
                   value="document"
-                  className="data-[state=active]:bg-[#58CC02] data-[state=active]:text-white" /* Duolingo active tab */
+                  className="bg-[#58CC02] text-white" /* Duolingo active tab */
                 >
                   Document
                 </TabsTrigger>
