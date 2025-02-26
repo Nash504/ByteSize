@@ -94,32 +94,28 @@ export default function Home() {
           {/* Duolingo green */}
         </div>
         <div className="flex gap-1">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full text-[#58CC02]"
-              >
-                {" "}
-                {/* Duolingo green */}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>Admin</DropdownMenuItem>
-              <DropdownMenuItem>Mechanic</DropdownMenuItem>
-              <DropdownMenuItem>Customer</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
           <Sheet>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full md:hidden text-[#58CC02]"
+                className="rounded-full text-[#58CC02] border border-gray-300"
               >
-                {" "}
-                {/* Duolingo green */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                </svg>
+                
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="sm:max-w-xs">
@@ -132,7 +128,6 @@ export default function Home() {
                   <span className="text-lg font-bold text-[#58CC02]">
                     ByteSize
                   </span>{" "}
-                  {/* Duolingo green */}
                 </Link>
                 <Link
                   href="#"
