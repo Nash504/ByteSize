@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -17,10 +18,26 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader";
-
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
@@ -156,21 +173,20 @@ export default function Home() {
             </CardHeader>
             <Tabs defaultValue="text" className="w-full">
               <TabsList className="flex justify-center bg-[#F7F7F7] border border-[#E5E5E5]">
-                {" "}
-                {/* Duolingo tab style */}
                 <TabsTrigger
                   value="text"
-                  className="bg-[#58CC02]  text-white" /* Duolingo active tab */
+                  className="data-[state=active]:bg-[#58CC02] data-[state=active]:text-white"
                 >
                   Text
                 </TabsTrigger>
                 <TabsTrigger
                   value="document"
-                  className="bg-[#58CC02] text-white" /* Duolingo active tab */
+                  className="data-[state=active]:bg-[#58CC02] data-[state=active]:text-white"
                 >
                   Document
                 </TabsTrigger>
               </TabsList>
+
               <TabsContent value="text">
                 <Textarea
                   className="resize-none rounded-md h-40 w-full p-2 focus:ring-2 focus:ring-[#58CC02] focus:bg-white border-2 border-[#E5E5E5]" /* Duolingo input style */
