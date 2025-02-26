@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,24 +17,12 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FlashcardGeneratorLoader } from "@/components/ui/flashcard-generator-loader";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -114,8 +101,7 @@ export default function Home() {
                     strokeWidth={2}
                     d="M4 6h16M4 12h16m-7 6h7"
                   />
-                </svg>
-                
+                </svg>      
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="sm:max-w-xs">
@@ -189,7 +175,6 @@ export default function Home() {
                   Document
                 </TabsTrigger>
               </TabsList>
-
               <TabsContent value="text">
                 <Textarea
                   className="resize-none rounded-md h-40 w-full p-2 focus:ring-2 focus:ring-[#58CC02] focus:bg-white border-2 border-[#E5E5E5]" /* Duolingo input style */
