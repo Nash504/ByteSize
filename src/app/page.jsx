@@ -71,27 +71,31 @@ export default function Home() {
     }
   };
 
-  const toggleCard = (index) => {
+  // Modified function to use topic-index combined identifier
+  const toggleCard = (topicName, index) => {
+    const cardId = `${topicName}-${index}`;
     setFlippedCards((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [cardId]: !prev[cardId],
     }));
+  };
+
+  // Helper function to check if a card is flipped
+  const isCardFlipped = (topicName, index) => {
+    const cardId = `${topicName}-${index}`;
+    return !!flippedCards[cardId];
   };
 
   return (
     <div className="bg-[#F7F7F7]">
-      {" "}
-      {/* Light gray background like Duolingo */}
       <header className="flex h-16 w-full items-center justify-between bg-white px-4 md:px-6 shadow-sm">
         <div className="flex items-center gap-2">
           <span className="text-lg font-bold block sm:hidden text-[#58CC02]">
             ByteSize Mobile
-          </span>{" "}
-          {/* Duolingo green */}
+          </span>
           <span className="text-2xl font-bold hidden sm:block text-[#58CC02]">
             ByteSize
-          </span>{" "}
-          {/* Duolingo green */}
+          </span>
         </div>
         <div className="flex gap-1">
           <Sheet>
@@ -126,25 +130,25 @@ export default function Home() {
                 >
                   <span className="text-lg font-bold text-[#58CC02]">
                     ByteSize
-                  </span>{" "}
+                  </span>
                 </Link>
                 <Link
                   href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]" /* Hover in Duolingo green */
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]"
                   prefetch={false}
                 >
                   Home
                 </Link>
                 <Link
                   href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]" /* Hover in Duolingo green */
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]"
                   prefetch={false}
                 >
                   About
                 </Link>
                 <Link
                   href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]" /* Hover in Duolingo green */
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]"
                   prefetch={false}
                 >
                   Contact
@@ -157,16 +161,11 @@ export default function Home() {
       <div className="p-2 max-w-lg mx-auto font-feather">
         <form onSubmit={generateText}>
           <Card className="border-[#58CC02] border-b-8 mt-4 p-4 border-2 rounded-xl shadow-lg">
-            {" "}
-            {/* Duolingo card style */}
             <CardHeader>
               <CardTitle className="text-2xl text-[#4b4b4b]">
                 AI Flashcard Generator
-              </CardTitle>{" "}
-              {/* Duolingo dark gray */}
+              </CardTitle>
               <CardDescription className="text-md text-[#777777]">
-                {" "}
-                {/* Duolingo medium gray */}
                 Upload a document, paste your notes to automatically generate
                 flashcards with AI.
               </CardDescription>
@@ -189,7 +188,7 @@ export default function Home() {
 
               <TabsContent value="text">
                 <Textarea
-                  className="resize-none rounded-md h-40 w-full p-2 focus:ring-2 focus:ring-[#58CC02] focus:bg-white border-2 border-[#E5E5E5]" /* Duolingo input style */
+                  className="resize-none rounded-md h-40 w-full p-2 focus:ring-2 focus:ring-[#58CC02] focus:bg-white border-2 border-[#E5E5E5]"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Paste your notes here..."
@@ -197,8 +196,6 @@ export default function Home() {
                 />
                 {input.length >= maxLength && (
                   <CardDescription className="text-[#FF4B4B] mt-2">
-                    {" "}
-                    {/* Duolingo red */}
                     You have exceeded the maximum of 25,000 characters
                   </CardDescription>
                 )}
@@ -210,8 +207,6 @@ export default function Home() {
                         : "text-[#777777]"
                     }
                   >
-                    {" "}
-                    {/* Duolingo red/gray */}
                     {input.length}/{maxLength} characters
                   </p>
                 </CardDescription>
@@ -229,8 +224,6 @@ export default function Home() {
               </TabsContent>
               <TabsContent value="document">
                 <p className="text-[#777777] p-10 font-bold">
-                  {" "}
-                  {/* Duolingo gray */}
                   Document feature coming soon!
                 </p>
               </TabsContent>
@@ -240,8 +233,7 @@ export default function Home() {
 
         {loading ? (
           <div className="flex justify-center items-center mx-auto pt-8">
-            <FlashcardGeneratorLoader color="#58CC02" cardCount={1} />{" "}
-            {/* Duolingo green loader */}
+            <FlashcardGeneratorLoader color="#58CC02" cardCount={1} />
           </div>
         ) : (
           flashcards &&
@@ -249,8 +241,7 @@ export default function Home() {
             <div key={topicIndex} className="mt-4 flex flex-col items-center">
               <h2 className="text-2xl font-bold mb-4 mt-16 text-[#4b4b4b]">
                 {topic}
-              </h2>{" "}
-              {/* Duolingo dark gray */}
+              </h2>
               <Carousel className="w-full max-w-md">
                 <CarouselContent>
                   {questions
@@ -262,19 +253,15 @@ export default function Home() {
                             className="relative w-full h-96 transition-transform duration-500"
                             style={{
                               transformStyle: "preserve-3d",
-                              transform: flippedCards[index]
+                              transform: isCardFlipped(topic, index)
                                 ? "rotateY(180deg)"
                                 : "rotateY(0deg)",
                             }}
-                            onClick={() => toggleCard(index)}
+                            onClick={() => toggleCard(topic, index)}
                           >
                             <Card className="absolute w-full backface-hidden border-2 border-[#58CC02] border-b-8 rounded-xl shadow-lg">
-                              {" "}
-                              {/* Duolingo card style */}
                               <CardHeader>
                                 <CardTitle className="text-lg text-center text-[#4b4b4b]">
-                                  {" "}
-                                  {/* Duolingo dark gray */}
                                   Flashcard {index + 1} of {questions.length}
                                 </CardTitle>
                               </CardHeader>
@@ -282,39 +269,30 @@ export default function Home() {
                                 <div className="text-center w-full">
                                   <p className="text-md text-[#4b4b4b]">
                                     {item.question}
-                                  </p>{" "}
-                                  {/* Duolingo dark gray */}
+                                  </p>
                                 </div>
                                 <p className="mt-4 text-xs text-[#777777]">
-                                  {" "}
-                                  {/* Duolingo medium gray */}
                                   Tap to flip
                                 </p>
                               </CardContent>
                             </Card>
 
                             <Card
-                              className="absolute w-full h-full backface-hidden border-2 border-[#1CB0F6] border-b-8 rounded-xl p-2 shadow-lg" /* Duolingo blue for answer card */
+                              className="absolute w-full h-full backface-hidden border-2 border-[#1CB0F6] border-b-8 rounded-xl p-2 shadow-lg"
                               style={{ transform: "rotateY(180deg)" }}
                             >
                               <CardHeader>
                                 <CardTitle className="text-lg text-center text-[#4b4b4b]">
-                                  {" "}
-                                  {/* Duolingo dark gray */}
                                   Answer
                                 </CardTitle>
                               </CardHeader>
                               <CardContent className="flex flex-col items-center justify-center w-full overflow-y-auto pb-16">
                                 <div className="text-center w-full">
                                   <p className="text-md text-[#1CB0F6]">
-                                    {" "}
-                                    {/* Duolingo blue */}
                                     {item.answer}
                                   </p>
                                 </div>
                                 <p className="mt-4 text-xs text-[#777777]">
-                                  {" "}
-                                  {/* Duolingo medium gray */}
                                   Tap to flip back
                                 </p>
                               </CardContent>
@@ -324,6 +302,7 @@ export default function Home() {
                       </CarouselItem>
                     ))}
                 </CarouselContent>
+                <div className="flex justify-center gap-2 mt-4"></div>
               </Carousel>
             </div>
           ))
