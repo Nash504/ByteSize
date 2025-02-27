@@ -5,22 +5,20 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Feather Bold';
-  src: url('/fonts/FeatherBold.woff2') format('woff2'),
-        url('/fonts/FeatherBold.woff') format('woff'),
-        url('/fonts/FeatherBold.ttf') format('truetype');
+  font-family: "Feather Bold";
+  src: url("/fonts/FeatherBold.woff2") format("woff2"),
+    url("/fonts/FeatherBold.woff") format("woff"),
+    url("/fonts/FeatherBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 body {
-  font-family:   'Feather Bold','Roboto','Poppins',Arial, sans-serif;
+  font-family: "Feather Bold", "Roboto", "Poppins", Arial, sans-serif;
   background-color: var(--background);
   color: var(--foreground);
 }
 
 /* Additional custom styles */
-
-
 
 @layer base {
   :root {
@@ -87,8 +85,6 @@ body {
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -123,4 +119,3 @@ body {
     animation: flashcard-generate 2s ease-in-out infinite;
   }
 }
-
