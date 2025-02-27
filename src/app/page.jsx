@@ -171,20 +171,21 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <Tabs defaultValue="text" className="w-full">
-              <TabsList className="flex justify-center bg-[#F7F7F7] border border-[#E5E5E5]">
-                <TabsTrigger
-                  value="text"
-                  className="data-[state=active]:bg-[#58CC02] data-[state=active]:text-white"
-                >
-                  Text
-                </TabsTrigger>
-                <TabsTrigger
-                  value="document"
-                  className="data-[state=active]:bg-[#58CC02] data-[state=active]:text-white"
-                >
-                  Document
-                </TabsTrigger>
-              </TabsList>
+            <TabsList className="flex justify-center bg-[#F7F7F7] border border-[#E5E5E5] rounded-lg p-1 mb-4">
+  <TabsTrigger
+    value="text"
+    className="text-[#4b4b4b] rounded-md data-[state=active]:bg-green-500 data-[state=active]:text-white hover:bg-[#F0F0F0] transition-colors"
+  >
+    Text
+  </TabsTrigger>
+  <TabsTrigger
+    value="document"
+    className="text-[#4b4b4b] rounded-md data-[state=active]:bg-green-500 data-[state=active]:text-white hover:bg-[#F0F0F0] transition-colors"
+  >
+    Document
+  </TabsTrigger>
+</TabsList>
+
 
               <TabsContent value="text">
                 <Textarea
@@ -233,7 +234,7 @@ export default function Home() {
 
         {loading ? (
           <div className="flex justify-center items-center mx-auto pt-8">
-            <FlashcardGeneratorLoader color="#58CC02" cardCount={1} />
+            <FlashcardGeneratorLoader color="green" cardCount={1} />
           </div>
         ) : (
           flashcards &&

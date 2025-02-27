@@ -5,20 +5,21 @@ import { Sparkles } from "lucide-react";
 interface FlashcardGeneratorLoaderProps
   extends React.HTMLAttributes<HTMLDivElement> {
   cardCount?: number;
-  color?: "blue" | "purple" | "green" | "black";
+  color?: "green"|"blue" | "purple"  | "black";
 }
 
 export function FlashcardGeneratorLoader({
   cardCount = 1,
-  color = "black",
+  color = "green",
   className,
   ...props
 }: FlashcardGeneratorLoaderProps) {
   const colorClasses = {
     blue: "bg-blue-100 border-blue-300",
     purple: "bg-purple-100 border-purple-300",
-    green: "bg-green-100 border-green-300",
+    green2: "bg-green-100 border-green-300",
     black: "bg-violet-800 border-black",
+    green: "bg-[#58CC02] border-[#58CC02]",
   };
 
   return (
