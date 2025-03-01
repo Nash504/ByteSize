@@ -23,7 +23,7 @@ export async function POST(req) {
 
 const processOutput = (output) => {
   try {
-    console.log(output);
+    // console.log(output);
     const cleanedOutput = output.replace(/```json|```/g, "").trim();
     const jsonOutput = JSON.parse(cleanedOutput);
     const mainTopic = Object.keys(jsonOutput);
@@ -31,7 +31,6 @@ const processOutput = (output) => {
     for (var i = 0; i < mainTopic.length; i++) {
       result[mainTopic[i]] = jsonOutput[mainTopic[i]].Questions;
     }
-
     return result;
   } catch (error) {
     console.error("Failed to parse output:", error);

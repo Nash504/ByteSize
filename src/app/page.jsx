@@ -170,7 +170,28 @@ export default function Home() {
     toast.success("The deck has been removed from your collection.");
   };
 
+  const exportDeck = () => {
+    if (!flashcards) {
+      toast.error("Please generate or load flashcards first.");
+      return;
+    }
 
+    const fileName = `${deckName || "flashcards"}_${new Date()
+      .toISOString()
+      .slice(0, 10)}.json`;
+    const dataStr = JSON.stringify(flashcards, null, 2);
+    const dataUri =
+      "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
+
+    const link = document.createElement("a");
+    link.setAttribute("href", dataUri);
+    link.setAttribute("download", fileName);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    toast.success(`Your flashcards have been exported as ${fileName}.`);
+  };
 
   return (
     <div className="bg-[#F7F7F7] min-h-screen">
@@ -486,6 +507,13 @@ export default function Home() {
                     disabled={!deckName.trim()}
                   >
                     Save Deck
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-[#1CB0F6] text-[#1CB0F6]"
+                    onClick={exportDeck}
+                  >
+                    Export
                   </Button>
                 </div>
               </div>
