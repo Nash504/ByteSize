@@ -27,9 +27,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import  Logo from "@/components/logo";
-
-
+import Logo from "@/components/logo";
 
 export default function Home() {
   const [flashcards, setFlashcards] = useState(null);
@@ -82,7 +80,7 @@ export default function Home() {
     <div className="bg-[#F7F7F7]">
       <header className="flex h-16 w-full items-center justify-between bg-white px-4 md:px-6 shadow-sm">
         <div className="flex items-center gap-2">
-        <Logo />
+          <Logo />
           <span className="text-lg font-bold block sm:hidden text-[#58CC02]">
             ByteSize Mobile
           </span>
@@ -114,7 +112,7 @@ export default function Home() {
                 </svg>
               </Button>
             </SheetTrigger>
-             <SheetTitle></SheetTitle> 
+            <SheetTitle></SheetTitle>
             <SheetContent side="left" className="sm:max-w-xs">
               <nav className="grid gap-6 text-lg font-medium">
                 <Link
@@ -166,7 +164,7 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <Tabs defaultValue="text" className="w-full">
-            <TabsList className="flex justify-center bg-[#F7F7F7] border border-[#E5E5E5] rounded-lg p-1 mb-4">
+              <TabsList className="flex justify-center bg-[#F7F7F7] border border-[#E5E5E5] rounded-lg p-1 mb-4">
                 <TabsTrigger
                   value="text"
                   className="text-[#4b4b4b] rounded-md data-[state=active]:bg-green-500 data-[state=active]:text-white hover:bg-[#F0F0F0] transition-colors"
