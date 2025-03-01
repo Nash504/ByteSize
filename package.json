@@ -11,6 +11,9 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-progress": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-tabs": "^1.1.3",
     "byte_size": "file:",
@@ -21,8 +24,10 @@
     "embla-carousel-react": "^8.5.2",
     "lucide-react": "^0.475.0",
     "next": "15.1.7",
+    "next-themes": "^0.4.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
