@@ -452,11 +452,11 @@ export default function Home() {
                   </Button>
                 </div>
                 {input && (
-                  <div className="mt-4 flex justify-between"> 
+                  <div className="mt-4 flex justify-between">
                     <p className="text-[#4b4b4b] font-medium">
                       File content loaded successfully!!
                     </p>
-                    <div className=" mt-2 p-3"> 
+                    <div className=" mt-2 p-3">
                       <Button
                         disabled={loading}
                         className="text-lg font-bold relative bg-[#58CC02] text-white px-6 py-3 rounded-xl transition-all duration-200
