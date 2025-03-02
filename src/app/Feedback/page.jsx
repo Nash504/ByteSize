@@ -1,31 +1,31 @@
-import FeedbackForm from "@/components/feedback-form"
+import FeedbackForm from "@/components/feedback-form";
 import Logo from "@/components/logo";
 import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "@/components/ui/sheet";
-  import { Button } from "@/components/ui/button";
-  import Link from "next/link";
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-    <header className="flex h-16 w-full items-center justify-between bg-white px-4 md:px-6 shadow-sm">
+      <header className="flex h-16 w-full items-center justify-between bg-white px-4 md:px-6 shadow-sm">
         <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2" prefetch={false}>
-          <Logo />
-          <span className="text-lg font-bold block sm:hidden text-[#58CC02]">
-            ByteSize Mobile
-          </span>
-          <span className="text-2xl font-bold hidden sm:block text-[#58CC02]">
-            ByteSize
-          </span>
-        </Link>
+          <Link href="/" className="flex items-center gap-2" prefetch={false}>
+            <Logo />
+            <span className="text-lg font-bold block sm:hidden text-[#58CC02]">
+              ByteSize Mobile
+            </span>
+            <span className="text-2xl font-bold hidden sm:block text-[#58CC02]">
+              ByteSize
+            </span>
+          </Link>
         </div>
         <div className="flex gap-2 items-center">
           <Sheet>
@@ -83,23 +83,25 @@ export default function Home() {
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]"
                   prefetch={false}
                 >
-                  Contact
+                  Feedback
                 </Link>
               </nav>
             </SheetContent>
           </Sheet>
         </div>
       </header>
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-background">
-      <div className="w-full max-w-md mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-6 text-primary">We Value Your Feedback</h1>
-        <p className="text-center mb-8 text-muted-foreground">
-          Help us improve our service by sharing your thoughts and suggestions.
-        </p>
-        <FeedbackForm />
-      </div>
-    </main>
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-background">
+        <div className="w-full max-w-md mx-auto">
+          <h1 className="text-3xl font-bold text-center mb-6 text-primary">
+            We Value Your Feedback
+          </h1>
+          <p className="text-center mb-8 text-muted-foreground">
+            Help us improve our service by sharing your thoughts and
+            suggestions.
+          </p>
+          <FeedbackForm />
+        </div>
+      </main>
     </>
-  )
+  );
 }
-
