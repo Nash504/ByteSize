@@ -200,7 +200,7 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <Logo />
           <span className="text-lg font-bold block sm:hidden text-[#58CC02]">
-            ByteSize
+            ByteSize Mobile
           </span>
           <span className="text-2xl font-bold hidden sm:block text-[#58CC02]">
             ByteSize
@@ -308,11 +308,11 @@ export default function Home() {
                   About
                 </Link>
                 <Link
-                  href="#"
+                  href="/Feedback"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]"
                   prefetch={false}
                 >
-                  Contact
+                  Feedbacks
                 </Link>
               </nav>
             </SheetContent>
@@ -349,7 +349,7 @@ export default function Home() {
                   value="document"
                   className="text-[#4b4b4b] rounded-md data-[state=active]:bg-green-500 data-[state=active]:text-white hover:bg-[#F0F0F0] transition-colors"
                 >
-                  Document
+                  Upload FlashCards
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="text">
@@ -430,46 +430,33 @@ export default function Home() {
                     />
                   </svg>
                   <p className="text-[#777777] font-medium mb-4">
-                    Drag and drop a file or click to browse
+                    Click to browse exported flashcards.
                   </p>
                   <Input
                     id="fileUpload"
                     type="file"
-                    accept=".txt,.md,.pdf"
+                    accept=".json"
                     className="hidden"
                     onChange={handleFileUpload}
                   />
                   <Button
-                    onClick={() =>
-                      document.getElementById("fileUpload").click()
-                    }
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent form submission
+                      document.getElementById("fileUpload").click();
+                    }}
                     variant="outline"
                     className="border-[#58CC02] text-[#58CC02]"
+                    type="button" // Explicitly set type to button
                   >
                     Choose File
                   </Button>
                 </div>
                 {input && (
-                  <div className="mt-4">
+                  <div className="mt-4 flex justify-between"> 
                     <p className="text-[#4b4b4b] font-medium">
-                      File content loaded successfully
+                      File content loaded successfully!!
                     </p>
-                    <div className="flex justify-between mt-4">
-                      <div className="flex gap-2 items-center">
-                        <Label
-                          htmlFor="documentDeckName"
-                          className="text-[#777777]"
-                        >
-                          Deck Name:
-                        </Label>
-                        <Input
-                          id="documentDeckName"
-                          value={deckName}
-                          onChange={(e) => setDeckName(e.target.value)}
-                          placeholder="My Flashcards"
-                          className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
-                        />
-                      </div>
+                    <div className=" mt-2 p-3"> 
                       <Button
                         disabled={loading}
                         className="text-lg font-bold relative bg-[#58CC02] text-white px-6 py-3 rounded-xl transition-all duration-200
