@@ -387,19 +387,8 @@ export default function Home() {
                     {input.length}/{maxLength}
                   </span>
                 </CardDescription>
-                <CardFooter className="flex justify-between mt-4">
-                  <div className="flex gap-2 items-center">
-                    <Label htmlFor="deckName" className="text-[#777777]">
-                      Deck Name:
-                    </Label>
-                    <Input
-                      id="deckName"
-                      value={deckName}
-                      onChange={(e) => setDeckName(e.target.value)}
-                      placeholder="My Flashcards"
-                      className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
-                    />
-                  </div>
+                <CardFooter className="flex justify-normal mt-4">
+                  <div className=" flex w-full justify-end"> 
                   <Button
                     disabled={
                       input.length >= maxLength || input.length === 0 || loading
@@ -411,6 +400,7 @@ export default function Home() {
                   >
                     {loading ? "Generating..." : "Generate"}
                   </Button>
+                  </div>
                 </CardFooter>
               </TabsContent>
               <TabsContent value="document">
@@ -483,9 +473,18 @@ export default function Home() {
           flashcards && (
             <div className="mt-8">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-[#4b4b4b]">
-                  Your Flashcards
-                </h2>
+              <div className="flex gap-2 ">
+                    <Label htmlFor="deckName" className="text-[#777777]">
+                      Deck Name:
+                    </Label>
+                    <Input
+                      id="deckName"
+                      value={deckName}
+                      onChange={(e) => setDeckName(e.target.value)}
+                      placeholder="My Flashcards"
+                      className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
+                    />
+                  </div>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
