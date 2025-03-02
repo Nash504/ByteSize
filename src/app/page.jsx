@@ -301,7 +301,7 @@ export default function Home() {
                   Home
                 </Link>
                 <Link
-                  href="#"
+                  href="/About"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-[#58CC02]"
                   prefetch={false}
                 >
