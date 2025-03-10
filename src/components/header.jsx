@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex h-16 w-full items-center justify-between border-white bg-white px-4 md:px-6 shadow-sm">
+    <header className="flex h-16 w-full items-center justify-between  bg-white px-4 md:px-6 shadow-sm border-b border-gray-200">
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <Logo />
