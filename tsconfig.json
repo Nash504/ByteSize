@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/ui/dropdown-menu.tsx", "src/components/feedback-form.jsx"  ],
+, "src/components/ui/dropdown-menu.tsx", "src/components/feedback-form.jsx", "src/components/header.jsx"  ],
   "exclude": [
     "node_modules"
   ]

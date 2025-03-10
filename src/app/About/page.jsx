@@ -1,20 +1,10 @@
 import FeedbackForm from "@/components/feedback-form";
-import Logo from "@/components/logo";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Header from "@/components/header";
 
 export default function Home() {
   return (
     <>
+<<<<<<< HEAD
       <header className="flex h-16 w-full items-center justify-between bg-white px-4 md:px-6 shadow-sm">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2" prefetch={false}>
@@ -91,6 +81,10 @@ export default function Home() {
         </div>
       </header>
       <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-[#F7F7F7] ">
+=======
+    <Header />
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-background">
+>>>>>>> a9cfc6362931257fe68046731f9a02dfa0e132a9
         <div className="w-full max-w-md mx-auto">
           <h1 className="text-5xl font-bold text-left -ml-56  -mt-80 text-primary">
             About Us
