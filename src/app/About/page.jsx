@@ -16,8 +16,8 @@ export default function Home() {
             About Us
           </h1>
         </div>
-        <div className="flex flex-col items-center justify-center space-x-4 gap-4 mb-4 mt-4">
-          <Profile img={srijan} name="Srijan K" Description={sdes} />
+        <div className="flex flex-col items-center justify-center gap-4 mb-4 mt-4">
+          <Profile img={srijan} name="Srijan" Description={sdes} />
           <Profile img={srijan} name="Nash Fernandes" Description={ndes} />
         </div>
       </main>

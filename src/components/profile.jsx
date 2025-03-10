@@ -13,18 +13,18 @@ const Profile = ({ img, name, Description, alt = "Profile Image" }) => {
   return (
     <Card className="flex flex-col overflow-hidden max-w-md mx-auto shadow-lg">
       {/* Top half - Image */}
-      <div className="relative w-full h-64">
+      <div className="relative w-full h-40">
         <Image src={img} alt={alt} fill className="object-cover" priority />
       </div>
 
       {/* Bottom half - Content */}
       <div className="p-6 flex flex-col flex-grow">
-        <CardTitle className="text-4xl font-bold mb-4">{name}</CardTitle>
-        <CardDescription className="text-xl min-h-32 mb-4">
+        <CardTitle className="text-2xl font-bold mb-4">{name}</CardTitle>
+        <CardDescription className="text-base w-72 min-h-24 mb-2">
           {Description}
         </CardDescription>
 
-        <CardFooter className="px-0 mt-auto">
+        <CardFooter className="px-0 pb-0 pt-4">
           <div className="flex items-center space-x-6">
             <a
               href="https://www.linkedin.com/in/srijan-kulal"
