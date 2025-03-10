@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-background">
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-[#F7F7F7]">
         <div className="w-full max-w-md mx-auto">
           <h1 className="text-3xl font-bold text-center mb-6 text-primary">
             We Value Your Feedback
