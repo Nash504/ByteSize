@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-left -ml-56  -mt-80 text-primary">
+          <h1 className="text-5xl font-bold text-left -ml-56 -mt-80 text-primary">
             About Us
           </h1>
         </div>
