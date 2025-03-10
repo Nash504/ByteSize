@@ -257,7 +257,7 @@ export default function Home() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full text-[#58CC02] border border-gray-300"
+                className="rounded-full text-[#58CC02] border border-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -397,7 +397,7 @@ export default function Home() {
                       value={deckName}
                       onChange={(e) => setDeckName(e.target.value)}
                       placeholder="My Flashcards"
-                      className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
+                      className="w-40 border-[#FFFFFF] focus:ring-2 focus:ring-[#58CC02]"
                     />
                   </div>
                   <Button
