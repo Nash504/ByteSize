@@ -387,24 +387,8 @@ export default function Home() {
                     {input.length}/{maxLength}
                   </span>
                 </CardDescription>
-<<<<<<< HEAD
-                <CardFooter className="flex justify-between mt-4">
-                  <div className="flex gap-2 items-center">
-                    <Label htmlFor="deckName" className="text-[#777777]">
-                      Deck Name:
-                    </Label>
-                    <Input
-                      id="deckName"
-                      value={deckName}
-                      onChange={(e) => setDeckName(e.target.value)}
-                      placeholder="My Flashcards"
-                      className="w-40 border-[#FFFFFF] focus:ring-2 focus:ring-[#58CC02]"
-                    />
-                  </div>
-=======
                 <CardFooter className="flex justify-normal mt-4">
                   <div className=" flex w-full justify-end"> 
->>>>>>> a9cfc6362931257fe68046731f9a02dfa0e132a9
                   <Button
                     disabled={
                       input.length >= maxLength || input.length === 0 || loading
