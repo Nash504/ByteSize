@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import Profile from "@/components/profile";
 import srijan from "../../../public/srijan.PNG";
-import nash from "../../../public/nash.PNG";
+import nash from "../../../public/nash.png";
 
 var srijandes =
   "Hello! I'm Srijan K, a student at St Aloysius (Deemed To Be University). I'm learning and trying to do something interesting, constantly exploring new technologies and pushing myself.";
