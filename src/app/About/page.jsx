@@ -17,8 +17,20 @@ export default function Home() {
           </h1>
         </div>
         <div className="flex flex-col items-center justify-center gap-4 mb-4 mt-4">
-          <Profile img={srijan} name="Srijan" Description={sdes} />
-          <Profile img={srijan} name="Nash Fernandes" Description={ndes} />
+          <Profile
+            img={srijan}
+            name="Srijan"
+            linkedin_link="https://www.linkedin.com/in/srijan-kulal"
+            github_link="https://github.com/srijankulal"
+            Description={sdes}
+          />
+          <Profile
+            img={srijan}
+            name="Nash Fernandes"
+            linkedin_link="https://www.linkedin.com/in/nash-fernandes-b55b0b2b8/"
+            github_link="https://github.com/Nash504"
+            Description={ndes}
+          />
         </div>
       </main>
     </>

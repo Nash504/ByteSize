@@ -9,7 +9,14 @@ import {
 import React from "react";
 import { Description } from "@radix-ui/react-dialog";
 
-const Profile = ({ img, name, Description, alt = "Profile Image" }) => {
+const Profile = ({
+  img,
+  name,
+  Description,
+  linkedin_link,
+  github_link,
+  alt = "Profile Image",
+}) => {
   return (
     <Card className="flex flex-col overflow-hidden max-w-md mx-auto shadow-lg">
       {/* Top half - Image */}
@@ -27,7 +34,7 @@ const Profile = ({ img, name, Description, alt = "Profile Image" }) => {
         <CardFooter className="px-0 pb-0 pt-4">
           <div className="flex items-center space-x-6">
             <a
-              href="https://www.linkedin.com/in/srijan-kulal"
+              href={linkedin_link}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-700"
@@ -45,7 +52,7 @@ const Profile = ({ img, name, Description, alt = "Profile Image" }) => {
               </svg>
             </a>
 
-            <a href="/" className="text-gray-700 hover:text-black">
+            <a href={github_link} className="text-gray-700 hover:text-black">
               {/* GitHub SVG Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
