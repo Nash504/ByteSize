@@ -20,14 +20,14 @@ const Profile = ({
   return (
     <Card className="flex flex-col overflow-hidden max-w-md mx-auto shadow-lg">
       {/* Top half - Image */}
-      <div className="relative w-full h-40">
+      <div className="relative w-full h-56">
         <Image src={img} alt={alt} fill className="object-cover" priority />
       </div>
 
       {/* Bottom half - Content */}
       <div className="p-6 flex flex-col flex-grow">
         <CardTitle className="text-2xl font-bold mb-4">{name}</CardTitle>
-        <CardDescription className="text-base w-72 min-h-24 mb-2">
+        <CardDescription className="text-base w-72 min-h-24 -mt-2 -mb-2">
           {Description}
         </CardDescription>
 
