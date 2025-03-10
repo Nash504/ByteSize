@@ -388,18 +388,20 @@ export default function Home() {
                   </span>
                 </CardDescription>
                 <CardFooter className="flex justify-normal mt-4">
-                  <div className=" flex w-full justify-end"> 
-                  <Button
-                    disabled={
-                      input.length >= maxLength || input.length === 0 || loading
-                    }
-                    className="text-lg font-bold relative bg-[#58CC02] text-white px-6 py-3 rounded-xl transition-all duration-200
+                  <div className=" flex w-full justify-end">
+                    <Button
+                      disabled={
+                        input.length >= maxLength ||
+                        input.length === 0 ||
+                        loading
+                      }
+                      className="text-lg font-bold relative bg-[#58CC02] text-white px-6 py-3 rounded-xl transition-all duration-200
                     border-b-4 border-[#2E860A] shadow-[0px_4px_0px_#2E860A] hover:bg-[#46BB00]
                     active:border-b-[0px] active:shadow-[0px_0px_0px_0px] active:translate-y-[4px]"
-                    type="submit"
-                  >
-                    {loading ? "Generating..." : "Generate"}
-                  </Button>
+                      type="submit"
+                    >
+                      {loading ? "Generating..." : "Generate"}
+                    </Button>
                   </div>
                 </CardFooter>
               </TabsContent>
@@ -473,18 +475,18 @@ export default function Home() {
           flashcards && (
             <div className="mt-8">
               <div className="flex justify-between items-center mb-4">
-              <div className="flex gap-2 ">
-                    <Label htmlFor="deckName" className="text-[#777777]">
-                      Deck Name:
-                    </Label>
-                    <Input
-                      id="deckName"
-                      value={deckName}
-                      onChange={(e) => setDeckName(e.target.value)}
-                      placeholder="My Flashcards"
-                      className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
-                    />
-                  </div>
+                <div className="flex gap-2 ">
+                  <Label htmlFor="deckName" className="text-[#777777]">
+                    Deck Name:
+                  </Label>
+                  <Input
+                    id="deckName"
+                    value={deckName}
+                    onChange={(e) => setDeckName(e.target.value)}
+                    placeholder="My Flashcards"
+                    className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
+                  />
+                </div>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
