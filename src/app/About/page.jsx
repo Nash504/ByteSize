@@ -20,7 +20,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center gap-4 mb-4 mt-4">
           <Profile
             img={srijan}
-            name="Srijan"
+            name="Srijan K"
             linkedin_link="https://www.linkedin.com/in/srijan-kulal"
             github_link="https://github.com/srijankulal"
             Description={srijandes}
