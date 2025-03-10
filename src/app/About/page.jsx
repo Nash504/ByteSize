@@ -1,10 +1,11 @@
 import Header from "@/components/header";
 import Profile from "@/components/profile";
 import srijan from "../../../public/srijan.PNG";
+import nash from "../../../public/nash.PNG";
 
-var sdes =
+var srijandes =
   "Hello! I'm Srijan K, a student at St Aloysius (Deemed To Be University). I'm learning and trying to do something interesting, constantly exploring new technologies and pushing myself.";
-var ndes =
+var nashdes =
   "Contributed in the Front-End development. Developed the UI using Next.js and Tailwind CSS.";
 export default function Home() {
   return (
@@ -22,14 +23,14 @@ export default function Home() {
             name="Srijan"
             linkedin_link="https://www.linkedin.com/in/srijan-kulal"
             github_link="https://github.com/srijankulal"
-            Description={sdes}
+            Description={srijandes}
           />
           <Profile
-            img={srijan}
+            img={nash}
             name="Nash Fernandes"
             linkedin_link="https://www.linkedin.com/in/nash-fernandes-b55b0b2b8/"
             github_link="https://github.com/Nash504"
-            Description={ndes}
+            Description={nashdes}
           />
         </div>
       </main>
