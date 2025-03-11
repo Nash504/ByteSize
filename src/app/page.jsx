@@ -276,12 +276,7 @@ export default function Home() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="sm:max-w-xs">
-              <SheetHeader>
-                <SheetTitle>ByteSize Menu</SheetTitle>
-                <SheetDescription>
-                  Create, save, and study your flashcards
-                </SheetDescription>
-              </SheetHeader>
+              
               <nav className="grid gap-6 text-lg font-medium mt-6">
                 <Link
                   href="#"
@@ -465,7 +460,6 @@ export default function Home() {
             </Tabs>
           </Card>
         </form>
-
         {loading ? (
           <div className="flex flex-col justify-center items-center mx-auto pt-8">
             <FlashcardGeneratorLoader color="green" cardCount={3} />

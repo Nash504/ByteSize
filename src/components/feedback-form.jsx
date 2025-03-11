@@ -35,9 +35,6 @@ export default function FeedbackForm() {
         src="https://docs.google.com/forms/d/e/1FAIpQLSdxNALSjLtUoaym4xxsTjJ623beutnTEIwlQBgVtj1brhJ41Q/viewform?usp=header" 
         width="100%" 
         height="600px" 
-        frameBorder="0" 
-        marginHeight="0" 
-        marginWidth="0"
         onLoad={handleIframeLoad}
         className={`border-none transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
       >
