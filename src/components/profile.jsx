@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React from "react";
-import { Description } from "@radix-ui/react-dialog";
+
 
 const Profile = ({
   img,
@@ -18,10 +18,10 @@ const Profile = ({
   alt = "Profile Image",
 }) => {
   return (
-    <Card className="flex flex-col overflow-hidden max-w-md mx-auto shadow-lg">
+    <Card className="flex flex-col overflow-hidden max-w-md mx-auto  border-[#58CC02]  border-b-8 mt-4 p-4 border-2 rounded-xl shadow-lg">
       {/* Top half - Image */}
       <div className="relative w-full h-56">
-        <Image src={img} alt={alt} fill className="object-cover" priority />
+        <Image src={img} alt={alt} fill className="object-cover rounded-lg border-[#777777] border-2" priority />
       </div>
 
       {/* Bottom half - Content */}
