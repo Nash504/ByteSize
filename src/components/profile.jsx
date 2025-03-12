@@ -24,7 +24,7 @@ const Profile = ({
           src={img}
           alt={alt}
           fill
-          className="object-cover rounded-lg border-[#777777] border-2"
+          className="object-cover rounded-lg "
           priority
         />
       </div>
