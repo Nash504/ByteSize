@@ -20,7 +20,7 @@ export default function Home() {
             Welcome to ByteSize – "Simplifying Revision, One Byte at a Time."
             <br />
             <br />
-            We are a team of sexy students from St. Aloysius Degree College,
+            We are a team of students from St. Aloysius Degree College,
             bringing you ByteSize,
             <br />
             <br /> An AI-powered flashcard generator that helps students quickly
