@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/card";
 import React from "react";
 
-
 const Profile = ({
   img,
   name,
@@ -18,16 +17,16 @@ const Profile = ({
   alt = "Profile Image",
 }) => {
   return (
-    <Card className="flex flex-col overflow-hidden max-w-md mx-auto  border-[#58CC02]  border-b-8 mt-4 p-4 border-2 rounded-xl shadow-lg">
+    <Card className="flex flex-col overflow-hidden w-full h-full border-[#58CC02] border-b-8 p-4 border-2 rounded-xl shadow-lg">
       {/* Top half - Image */}
-      <div className="relative w-full h-56">
+      <div className="relative w-full h-56 md:h-64">
         <Image src={img} alt={alt} fill className="object-cover rounded-lg border-[#777777] border-2" priority />
       </div>
 
       {/* Bottom half - Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        <CardTitle className="text-2xl font-bold mb-4">{name}</CardTitle>
-        <CardDescription className="text-base w-72 min-h-24 -mt-2 -mb-2">
+      <div className="p-4 md:p-6 flex flex-col flex-grow">
+        <CardTitle className="text-xl md:text-2xl font-bold mb-4">{name}</CardTitle>
+        <CardDescription className="text-base md:text-lg flex-grow">
           {Description}
         </CardDescription>
 
