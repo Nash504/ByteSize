@@ -132,8 +132,12 @@ export default function Home() {
   };
 
   const saveCurrentDeck = () => {
+    if (!deckName.trim()) {
+      toast.error("Please provide a deck name before saving the deck.");
+      return;
+    }
     if (!flashcards || !deckName.trim()) {
-      toast.error("Please generate flashcards and provide a deck name first.");
+      toast.error("Please generate flashcards first.");
       return;
     }
 
@@ -143,7 +147,6 @@ export default function Home() {
       content: flashcards,
       createdAt: new Date().toISOString(),
     };
-
     const updatedDecks = [...savedDecks, newDeck];
     setSavedDecks(updatedDecks);
     localStorage.setItem("savedDecks", JSON.stringify(updatedDecks));
@@ -171,6 +174,8 @@ export default function Home() {
   };
 
   const exportDeck = () => {
+
+
     if (!flashcards) {
       toast.error("Please generate or load flashcards first.");
       return;
@@ -478,7 +483,7 @@ export default function Home() {
                     value={deckName}
                     onChange={(e) => setDeckName(e.target.value)}
                     placeholder="My Flashcards"
-                    className="w-40 border-[#E5E5E5] focus:ring-2 focus:ring-[#58CC02]"
+                    className="w-40 border-[#767676] ring-2 focus:ring-[#58CC02] focus:border-[#58CC02] "
                   />
                 </div>
                 <div className="flex gap-2">
@@ -486,7 +491,7 @@ export default function Home() {
                     variant="outline"
                     className="border-[#58CC02] text-[#58CC02]"
                     onClick={saveCurrentDeck}
-                    disabled={!deckName.trim()}
+                    // disabled={!deckName.trim()}
                   >
                     Save Deck
                   </Button>
